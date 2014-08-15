@@ -36,14 +36,6 @@
 
 <!-- repeatable version? -->
 
-<!-- so a page can maybe hold the sub information -->
-
-      <div ng-class={{page.sub.class}} ng-controller={{page.sub.controller}} ng-show="tab.isSelected(page.index)" >
-        <div ng-bind-html={{page.sub.html}}>
-
-        </div>
-      </div>
-
 
 <!--  -->
       <div class="centered" ng-if="page.title === 'about'" ng-controller="SocialController as social">

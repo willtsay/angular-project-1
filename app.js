@@ -7,6 +7,11 @@
     index:0,
     title: "about",
     content: "Hi I'm Will! I'm a full stack ruby developer living in the bay area. Aside from coding, I love cooking and drawing. I am currently looking for work. You can find me with these blobs.",
+    sub: {
+      controller:"SocialController",
+      klass: "centered",
+      
+    }
   },
   {
     index:1,
@@ -101,14 +106,6 @@
   app.controller('SkillController', function(){
     this.icons = icons
   })
-
-  var subs = [
-  {
-    subCtrlType:
-
-  }
-
-  ]
 
   app.controller('OverController', function(){
     this.subs = subs
