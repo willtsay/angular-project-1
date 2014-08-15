@@ -1,0 +1,63 @@
+body {
+  font-family: 'Oswald';
+  margin:0;
+  padding:0;
+}
+
+
+
+nav{
+  background-color:#FFF;
+}
+
+nav a{
+  display:inline;
+  padding-right:20px;
+  padding-left:20px;
+  text-align: none;
+  text-decoration: none;
+}
+
+
+a:visited {
+  color:black;
+}
+
+a:link {
+  color:black;
+}
+
+a:hover {
+  color:gray;
+}
+
+.centered{
+  text-align: center;
+}
+
+.justify-left {
+  text-align: left;
+}
+
+.push-left {
+  margin-left:20%;
+}
+
+.push-right {
+  margin-right:20%;
+}
+
+.skill_icon{
+  width:150px;
+}
+
+.title {
+  font-size:2em;
+  border-bottom:1px solid #111;
+  margin-left:17%;
+  margin-right:17%;
+}
+
+.push-right {
+  margin-right:20%;
+}

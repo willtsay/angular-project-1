@@ -1,0 +1,78 @@
+<html ng-app="site">
+<head>
+  <title>My Test Angular Thing</title>
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+<div ng-controller="SiteController as site">
+  <div ng-controller="TabController as tab">
+    <nav class="centered">
+      <a ng-repeat="page in site.pages" href="" ng-click="tab.selectTab(page.index)">{{page.title}}</a>
+    </nav>
+
+    <div class="title centered">
+      WILLIAM TSAY<br>
+      FULL STACK DEVELOPER
+    </div>
+
+
+    <div ng-repeat="page in site.pages" ng-show="tab.isSelected(page.index)">
+      <h1 class="section centered">{{page.title.toUpperCase()}}</h1>
+      <div class="content centered push-right push-left">
+        {{page.content}}
+      </div>
+
+
+      <!-- everything here/down are "page" dependent -> link this back into a controller if possible.  -->
+<!-- each subpage has its own controller...  
+
+  things each sub page shares ->  class -> maybe replace w/ ng-class?
+
+
+-->
+
+
+<!-- repeatable version? -->
+
+<!-- so a page can maybe hold the sub information -->
+
+      <div ng-class={{page.sub.class}} ng-controller={{page.sub.controller}} ng-show="tab.isSelected(page.index)" >
+        <div ng-bind-html={{page.sub.html}}>
+
+        </div>
+      </div>
+
+
+<!--  -->
+      <div class="centered" ng-if="page.title === 'about'" ng-controller="SocialController as social">
+        <a ng-href="{{website.link}}" ng-repeat="website in social.links">
+          <img class="skill_icon" ng-src={{website.icon}}>
+        </a>
+      </div>
+
+      <div class="centered" ng-controller="PortfolioController as port" ng-if="page.title=='portfolio'">
+        <div ng-repeat="project in port.projects">
+          <a href={{project.link}}>{{project.name}}</a>
+          {{project.description}}
+
+        </div>
+      </div>
+
+      <div class="content push-left push-right" ng-controller="SkillController as skill" ng-if="page.title==='skills'">
+        <img class="skill_icon" ng-repeat="icon in skill.icons" ng-src={{icon.location}}>
+      </div>
+
+      <div class="centered" ng-if="page.title==='other'" >
+        <iframe class="imgur-album" width="60%" height="400" frameborder="0" src="http://imgur.com/a/I1UG9/embed"></iframe>
+      </div>
+
+    </div>
+  </div>
+</div>
+ <script type="text/javascript" src="angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</body>
+ 
+</html>
