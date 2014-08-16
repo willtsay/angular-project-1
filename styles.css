@@ -47,7 +47,8 @@ a:hover {
   margin-right:20%;
 }
 
-.skill_icon{
+div a img{
+  display:inline-block;
   width:150px;
 }
 
