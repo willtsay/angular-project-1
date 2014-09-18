@@ -1,40 +1,13 @@
 <html ng-app="site">
 <head>
-  <title>My Test Angular Thing</title>
+  <title>My Personal Website</title>
   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="styles.css">
-<!-- REMOVE THESE WHEN YOU ACTUALLY LAUNCH -->
-  <script type="text/ng-template" id="about.html">
-    <div class="centered" ng-controller="SocialController">
-      <a ng-repeat="link in links" ng-href={{link.link}}><img ng-src={{link.icon}}></a>
-    </div>
-  </script>
-
-  <script type="text/ng-template" id="portfolio.html"><div class="centered" ng-controller="PortfolioController" ng-if="page.title=='portfolio'">
-  <div ng-repeat="project in projects">
-    <a href={{project.link}}>{{project.name}}</a>
-    {{project.description}}
-
-  </div>
-</div>
-</script>
-
-<script type="text/ng-template" id="skills.html">
-     <div class="content push-left push-right" ng-controller="SkillController" ng-if="page.title==='skills'">
-        <img class="skill_icon" ng-repeat="icon in icons" ng-src={{icon.location}}>
-      </div></script>
-
-      <script type="text/ng-template" id="other.html">      <div class="centered" ng-if="page.title==='other'" >
-        <iframe class="imgur-album" width="60%" height="400" frameborder="0" src="http://imgur.com/a/I1UG9/embed"></iframe>
-      </div></script>
-
-<!-- REMOVE STUFF ABOVE ON -->
 
 </head>
 <body>
 
 <div ng-controller="SiteController">
-  <div ng-controller="TabController">
     <nav class="centered">
       <a ng-repeat="page in pages" href="" ng-click="selectTab(page.index)">{{page.title}}</a>
     </nav>
@@ -44,40 +17,15 @@
       FULL STACK DEVELOPER
     </div>
 
-
     <div ng-repeat="page in pages" ng-show="isSelected(page.index)">
       <h1 class="section centered">{{page.title.toUpperCase()}}</h1>
       <div class="content centered push-right push-left">
         {{page.content}}
       </div>
-<!-- 
-<div ng-controller="SocialController">
-  <a ng-repeat="link in links" ng-href={{link.link}}><img ng-src={{link.icon}}></a>
-  </div> -->
-      
 
-
-      <div ng-include="'about.html'"></div>
-      <div ng-include="'portfolio.html'"></div>
-      <div ng-include="'skills.html'"></div>
-      <div ng-include="'other.html'"></div>
-      <div ng-include="'contact.html'"></div>
-
-
-<!-- 
-
-      have a sub controller
-      so i can directly say the things in that controller... 
-      this is "good" because i can say thing in a generic fashion?
-      however, the template is different..     
-
-  
- 
-
- -->
+    <div ng-include="page.partial"></div>
 
     </div>
-  </div>
 </div>
   <script type="text/javascript" src="angular.min.js"></script>
   <script type="text/javascript" src="app.js"></script>

@@ -47,8 +47,12 @@ a:hover {
   margin-right:20%;
 }
 
-div a img{
+.about {
   display:inline-block;
+  width:150px;
+}
+
+.skill_icon{
   width:150px;
 }
 
@@ -57,8 +61,4 @@ div a img{
   border-bottom:1px solid #111;
   margin-left:17%;
   margin-right:17%;
-}
-
-.push-right {
-  margin-right:20%;
 }
