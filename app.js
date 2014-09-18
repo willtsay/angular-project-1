@@ -1,56 +1,71 @@
-(function(){
 
   var app = angular.module('site', [ ])
 
-  var subjects = [
+  // app.controller('SiteController', function(){
+  //   this.pages = subjects
+  // })
+
+  app.controller('SiteController', ['$scope', SiteController])
+  app.controller('PortfolioController', ['$scope', PortfolioController])
+  app.controller('SocialController', ['$scope', SocialController])
+  app.controller('SkillController', ['$scope', SkillController])
+  
+  function SiteController($scope){
+    $scope.pages = pages
+    $scope.tab = 0
+    $scope.selectTab = function(settab){
+      $scope.tab = settab
+    }
+    $scope.isSelected = function(checktab){
+      return this.tab === checktab
+    }
+  }
+  function TabController($scope){
+    
+  }
+  function PortfolioController($scope){
+    $scope.projects = projects
+  }
+  function SocialController($scope){
+    $scope.links = links
+  }
+  function SkillController($scope){
+    $scope.icons = icons
+  }
+
+  var pages = [
   {
     index:0,
     title: "about",
     content: "Hi I'm Will! I'm a full stack ruby developer living in the bay area. Aside from coding, I love cooking and drawing. I am currently looking for work. You can find me with these blobs.",
-    sub: {
-      controller:"SocialController",
-      klass: "centered",
-      
-    }
+    partial:"partials/about.html"
   },
   {
     index:1,
     title: "portfolio",
     content: "My recent projects.",
-  
-
+    partial:"partials/portfolio.html"
   },
   {
     index:2,
     title: "skills",
     content: "",
+    partial:"partials/skills.html"
   },
   {
     index:3,
     title: "other",
     content: "Here are some works I've created over the years, enjoy!",
+    partial:"partials/other.html"
   },
   {
     index:4,
     title: "contact",
     content: "You can contact me at willtsay@gmail.com",
+    partial:"partials/contact.html"
   }]
 
-  app.controller('SiteController', function(){
-    this.pages = subjects
-  })
-
-  app.controller('TabController', function(){
-    this.tab = 0
-    this.selectTab = function(settab){
-      this.tab = settab 
-    }
-    this.isSelected = function(checktab){
-      return this.tab === checktab
-    }
-  })
-
-  var websites=[
+  var links=[
   {
     link:"https://www.facebook.com/willtsay/",
     icon:"images/facelogo.png"
@@ -66,29 +81,31 @@
   {
     link:"https://www.linkedin.com/in/williamtsay",
     icon:"images/linklogo.png"
-  },
+  }
   ]
 
   var projects = [
     {
+      name: "Not Set Online",
+      description: "Set- a fun card game built using RoR/AngularJS.",
+      link: "http://notset.herokuapp.com"
+    },
+    {
       name: "Little Pooper",
-      description: "Tamagotchi" ,
+      description: "Tamagotchi-like and minigames" ,
       link: "http://little-pooper.herokuapp.com"
     },
+    {
+      name: "Glitter",
+      description: "A \"uniquely\" styled twitter clone",
+      link: "http://twitterglitter.herokuapp.com"
+    }
     {
       name: "Number Whack",
       description: "js whackamole game",
       link: "http://dbc-whack.herokuapp.com"
     }
   ]
-
-  app.controller('PortfolioController', function(){
-    this.projects = projects
-  })
-
-  app.controller('SocialController', function(){
-    this.links = websites
-  })
 
   var icons = [
   { location: "images/icons/css3.png"},
@@ -102,15 +119,3 @@
   { location: "images/icons/python.png"},
   { location: "images/icons/ror.png"},
   ]
-
-  app.controller('SkillController', function(){
-    this.icons = icons
-  })
-
-  app.controller('OverController', function(){
-    this.subs = subs
-  })
-
-
-
-})();

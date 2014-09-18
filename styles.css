@@ -47,6 +47,11 @@ a:hover {
   margin-right:20%;
 }
 
+.about {
+  display:inline-block;
+  width:150px;
+}
+
 .skill_icon{
   width:150px;
 }
@@ -56,8 +61,4 @@ a:hover {
   border-bottom:1px solid #111;
   margin-left:17%;
   margin-right:17%;
-}
-
-.push-right {
-  margin-right:20%;
 }
