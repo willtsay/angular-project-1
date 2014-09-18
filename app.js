@@ -99,7 +99,7 @@
       name: "Glitter",
       description: "A \"uniquely\" styled twitter clone",
       link: "http://twitterglitter.herokuapp.com"
-    }
+    },
     {
       name: "Number Whack",
       description: "js whackamole game",
